@@ -1,0 +1,19 @@
+version: '3.4'
+
+services:
+  mysample:
+    image: lzw5399/mysample
+    depends_on:
+      - mssqlserver
+    ports:
+      - "80:80"
+    container_name: web
+
+  mssqlserver:
+    container_name: db
+    image: microsoft/mssql-server-linux
+    ports:
+      - "1433:1433"
+    environment:
+      SA_PASSWORD: "lzwxm!@#123456"
+      ACCEPT_EULA: "Y"
